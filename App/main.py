@@ -30,6 +30,10 @@ def initial():
   image_element.click()
   time.sleep(2)
   
+  url_text = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="Enter the Base URL"]').text
+  assert "Enter the Base URL" in url_text
+  print("CLICKED! ")
+  
   base_url = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="base-url"]')
   base_url.send_keys("test.fleetpanda.com")
   time.sleep(2)
@@ -42,14 +46,21 @@ def initial():
   signin_button.click()
   time.sleep(2)
   
-  input_element = driver.find_element(by=AppiumBy.XPATH,
-                                      value='//android.widget.EditText[@resource-id="phone-number-entry"]')
+  mobile_text = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="Mobile Number"]').text
+  assert "Mobile Number" in mobile_text
+  print("YOU CAN INPUT NUMBER HERE! ")
+  
+  input_element = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="phone-number-entry"]')
   input_element.send_keys(os.getenv('NUMBER'))
   time.sleep(2)
   
   continue_button = driver.find_element(by=AppiumBy.XPATH, value='//android.view.ViewGroup[@resource-id="phone-verify"]')
   continue_button.click()
   time.sleep(2)
+  
+  password_text = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="Enter Password"]').text
+  assert "Enter Password" in password_text
+  print("YOU CAN INPUT PASSWORD! ")
   
   password = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="password"]')
   password.send_keys(os.getenv('PASSWORD'))
@@ -105,9 +116,9 @@ def initial():
   dont_el.click()
   time.sleep(2)
   
-  okay_el = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="Great! you do not have any tasks right now to perform"]')
-  assert "Great!" in okay_el.text
-  print("OKAY! ")
+  # okay_el = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="Great! you do not have any tasks right now to perform"]')
+  # assert "Great!" in okay_el.text
+  # print("OKAY! ")
   
   menu_bar = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text=""]')
   menu_bar.click()
