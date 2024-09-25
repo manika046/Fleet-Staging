@@ -69,7 +69,7 @@ def Add_customer_asset():
   select_product.click()
   time.sleep(2)
   
-  product = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="101010"]')
+  product = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="101- Package product"]')
   product.click()
   time.sleep(2)
   

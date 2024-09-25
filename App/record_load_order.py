@@ -1,4 +1,4 @@
-import time
+from datetime import datetime, timedelta
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,9 +17,9 @@ def RecordLoadOrder():
   date_elem.click()
   time.sleep(1)
   
-  select_date = driver.find_element(by=AppiumBy.XPATH, value='//android.view.View[@content-desc="07 September 2024"]')
-  select_date.click()
-  time.sleep(1)
+  # select_date = driver.find_element(by=AppiumBy.XPATH, value='//android.view.View[@content-desc="11 September 2024"]')
+  # select_date.click()
+  # time.sleep(1)
   
   date_ok = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@resource-id="android:id/button1"]')
   date_ok.click()
@@ -85,20 +85,32 @@ def RecordLoadOrder():
   image.click()
   time.sleep(1)
   
-  card_in = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="card-in-time"]')
-  card_in.send_keys("0950")
-  time.sleep(1)
-  
-  card_out = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="card-out-time"]')
-  card_out.send_keys("1800")
-  time.sleep(1)
-  
   card_date = driver.find_element(by=AppiumBy.XPATH, value='//android.view.ViewGroup[@resource-id="card-in-date"]')
   card_date.click()
   time.sleep(1)
   
   date_ok_el = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.Button[@resource-id="android:id/button1"]')
   date_ok_el.click()
+  time.sleep(1)
+  
+  current_time = datetime.now()
+  print(current_time)
+  target_time = current_time + timedelta(hours=5)  # add 5 hour
+  print(target_time)
+  out_time = target_time.strftime("%H%M")
+  print(out_time)
+  
+  # card_in = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="card-in-time"]')
+  # card_in.send_keys(current_time)
+  # time.sleep(1)
+  
+  driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="card-out-time"]').click()
+  card_out = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.EditText[@resource-id="card-out-time"]')
+  card_out.send_keys(out_time)
+  time.sleep(1)
+  
+  anywhere = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup')
+  anywhere.click()
   time.sleep(1)
   
   supplier_el = driver.find_element(by=AppiumBy.XPATH, value='//android.view.ViewGroup[@resource-id="supplier"]')

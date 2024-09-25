@@ -8,8 +8,7 @@ def ScheduleDelivery():
   elem.click()
   time.sleep(1)
   
-  select_customer = driver.find_element(by=AppiumBy.XPATH,
-                                        value='//android.widget.TextView[@text="100 ASSETS CUSTOMER - 100-AC"]')
+  select_customer = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="100 ASSETS CUSTOMER - 100-AC"]')
   select_customer.click()
   time.sleep(1)
   
@@ -37,8 +36,7 @@ def ScheduleDelivery():
   customer_site.click()
   time.sleep(1)
   
-  select_customer = driver.find_element(by=AppiumBy.XPATH,
-                                        value='//android.widget.TextView[@text="100 Assets -customer -shipto"]')
+  select_customer = driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="100 Assets -customer -shipto"]')
   select_customer.click()
   time.sleep(1)
   
