@@ -3,6 +3,7 @@ from pages.add_customer_asset import AddCustomerAsset
 
 
 class TestAddCustomerAsset(TestDashBoard):
+  
   def test_add_customer(self, driver_setup):
     TestDashBoard.test_dashboard(self, driver_setup)
     
@@ -21,7 +22,6 @@ class TestAddCustomerAsset(TestDashBoard):
     add_customer.FuelCapacity("75 liters")
     add_customer.LicenseNumber()
     add_customer.SelectProduct()
-    add_customer.Product()
     add_customer.CreateButton()
     add_customer.ToastMessage()
     

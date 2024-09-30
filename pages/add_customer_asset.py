@@ -82,7 +82,6 @@ class AddCustomerAsset:
     select_product.click()
     time.sleep(2)
     
-  def Product(self):
     product = self.driver.find_element(by=AppiumBy.XPATH, value='//android.widget.TextView[@text="101- Package product"]')
     product.click()
     time.sleep(2)
