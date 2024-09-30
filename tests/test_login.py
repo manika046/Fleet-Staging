@@ -1,4 +1,3 @@
-import time
 import os
 import pytest
 from pathlib import Path
@@ -10,7 +9,6 @@ from pages.login import LoginPage
 
 @pytest.fixture(scope="class")
 def driver_setup(request):
-  # Appium driver setup
   options = AppiumOptions()
   options.load_capabilities({
     "platformName": "android",
@@ -20,14 +18,11 @@ def driver_setup(request):
     "appium:app": "C:\\Users\\acer\\Downloads\\app-staging-release.apk",
   })
   
-  # Load environment variables
   dotenv_path = Path('../.venv/.env')
   load_dotenv(dotenv_path=dotenv_path)
   
-  # Initialize Appium driver
   driver = webdriver.Remote("http://127.0.0.1:4723", options=options)
   
-  # Teardown after test completes
   def teardown():
     driver.quit()
   
@@ -40,7 +35,6 @@ def driver_setup(request):
 class TestLogin:
   
   def test_valid_login(self, driver_setup):
-    # Use driver_setup fixture
     login = LoginPage(driver_setup)
     
     login.ImageElement()
