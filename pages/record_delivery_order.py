@@ -3,7 +3,7 @@ import time
 from appium.webdriver.common.appiumby import AppiumBy
 
 
-class RecordDelivery():
+class RecordDelivery:
   def __init__(self, driver):
     self.driver = driver
   
