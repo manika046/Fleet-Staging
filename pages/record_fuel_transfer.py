@@ -22,7 +22,7 @@ class RecordFuel:
     self.to_el = '(//android.widget.TextView[@text=""])[2]'
     self.select_to_el = '//android.widget.TextView[@text="Box Truck New Asset"]'
     self.product_el = '(//android.widget.TextView[@text=""])[5]'
-    self.select_product_el = '//android.widget.TextView[@text="101010"]'
+    self.select_product_el = '//android.widget.TextView[@text="101- Package product"]'
     self.element = '(//android.widget.TextView[@text="-"])[1]'
     self.select_element = '//android.widget.TextView[@text="Comp 1"]'
     self.elements = '//android.view.ViewGroup[@resource-id="toComp_0"]'
